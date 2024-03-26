@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: port668_media_backend_development
+  username: postgres
+  password: tshepi14c
+
+test:
+  <<: *default
+  database: port668_media_backend_test
+  username: postgres
+  password: tshepi14c
+
+production:
+  <<: *default
+  database: port668_media_backend_production
+  username: port668_media_backend
+  password: <%= ENV["PORT668_MEDIA_BACKEND_DATABASE_PASSWORD"] %>
